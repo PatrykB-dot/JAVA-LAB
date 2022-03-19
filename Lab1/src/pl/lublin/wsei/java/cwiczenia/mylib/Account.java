@@ -8,10 +8,4 @@ public class Account {
     public String getName() {
         return name;
     }
-
-    public static void main(String[] args) {
-        Account acc = new Account();
-        acc.setName("Patryk Boryca");
-        System.out.println(acc.getName());
-    }
 }
