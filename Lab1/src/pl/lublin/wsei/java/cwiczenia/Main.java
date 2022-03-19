@@ -14,7 +14,6 @@ import static java.lang.String.*;
 public class Main {
     public static void main(String[] args) {
         Account acc = new Account();
-        acc.setName("Patryk Boryca");
-        System.out.println(acc.getName());
+        System.out.println(acc.translit("Патрик Борица"));
     }
 }
