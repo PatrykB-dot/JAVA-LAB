@@ -20,7 +20,6 @@ public class TestReadTextEnc {
               //  out.newLine();
                 out2.println(line);
             }
-
         }
         catch (IOException e) {
             System.out.println("IOException: "+e.getMessage());
