@@ -12,6 +12,8 @@ public class TestBinCopy {
         FileInputStream in = null;
         FileOutputStream out = null;
 
+        long startTime = System.nanoTime();
+
         try {
             in = new FileInputStream(  "sample_1920×1280.tiff");
             out = new FileOutputStream( "img_copy.tiff");
@@ -33,5 +35,10 @@ public class TestBinCopy {
                 out.close();
             }
         }
+        long endTime = System.nanoTime();
+        long timeElapsed = endTime - startTime;
+
+        System.out.println("Czas wykonania w nanosekundach :" + timeElapsed);
+        System.out.println("Czas wykonania w milisekundach :" + timeElapsed / 1000000);
     }
 }
