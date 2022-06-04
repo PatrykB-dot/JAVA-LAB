@@ -41,6 +41,15 @@ public class MyDB {
         }
         System.out.println("Connected to database "+this.database);
     }
+    public void closeConnection() {
+        if (conn != null)
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                System.out.println("Błąd o nazwie: " + e.getMessage());
+            }
+        conn = null;
+    }
     public Connection getConnection() {
         if (conn == null)
             connect();
