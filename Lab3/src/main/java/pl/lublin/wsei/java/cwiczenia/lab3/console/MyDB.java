@@ -18,10 +18,10 @@ public class MyDB {
         portNumber = port;
         database = dbName;
     }
-    private void setUser(String userName){
+    public void setUser(String userName){
         user = userName;
     }
-    private void setPassword(String userPassword){
+    public void setPassword(String userPassword){
         password = userPassword;
     }
     private void connect(){
