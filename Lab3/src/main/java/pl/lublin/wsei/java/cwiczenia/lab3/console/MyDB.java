@@ -7,41 +7,37 @@ import java.util.Properties;
 
 public class MyDB {
 
-    private Number portNumber ;
-    private String serverName ;
-    private String database ;
-    private Connection conn = null;
-    private String user;
-    private String password;
-
-    public MyDB() {
-        portNumber = 3306;
-        serverName = "localhost";
-        database = "mydb";
-        user = "root";
-        password = "D0ntF0rg3t";
-    }
-
-    private void connect() {
+    Number portNumber = 3306;
+    String serverName = "localhost";
+    String database = "mydb";
+    Connection conn = null;
+    String user = "root";
+    String password = "D0ntF0rg3t";
+    private void connect(){
+        MyDB mydb = new MyDB();
         Properties connectionProps = new Properties();
-        connectionProps.put("user", user);
-        connectionProps.put("password", password);
+        connectionProps.put("user", mydb.user);
+        connectionProps.put("password", mydb.password);
         connectionProps.put("serverTimezone", "Europe/Warsaw");
 
-        String jdbcString = "jdbc:mysql://" + serverName + ":" + portNumber + "/" + database;
+        String jdbcString = "jdbc:mysql://" + mydb.serverName + ":" + mydb.portNumber + "/" + mydb.database;
         try {
-            conn = DriverManager.getConnection(jdbcString, connectionProps);
+            mydb.conn = DriverManager.getConnection(jdbcString, connectionProps);
         }
         catch (SQLException e) {
             System.out.println("Błąd podłączenia do bazy: "+jdbcString);
             System.out.println("Komunikat błędu: "+e.getMessage());
-            conn = null;
+            mydb.conn = null;
         }
-        System.out.println("Connected to database "+database);
+        System.out.println("Connected to database "+mydb.database);
     }
     public Connection getConnection() {
         if (conn == null)
             connect();
         return conn;
+    }
+    public static void main(String[] args) {
+        MyDB mydb = new MyDB();
+        mydb.connect();
     }
 }
