@@ -10,8 +10,11 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("gusInfoGraphic.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 700);
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("gusInfoGraphic.fxml"));
+        Scene scene = new Scene(loader.load(), 800, 700);
+        Controller controller = loader.getController();
+        controller.setHostServices(this.getHostServices());
+        controller.setStage(stage);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
