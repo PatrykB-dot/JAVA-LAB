@@ -18,7 +18,7 @@ public class TestRegEx {
                 "\t\t\t<description><![CDATA[<div><img src=\"https://stat.gov.pl//gfx/portalinformacyjny/_thumbs/pl/defaultaktualnosci/5866/118/2/1/dzien_dziecka_2022_slider_ang,k1uUwl-caFOE6tCTiHtf.png\" alt=\"\" width=\"280\" height=\"212\"/></div>]]></description>\n" +
                 "\t\t</item>";
 
-        Pattern pat = Pattern.compile("<title><!\\[CDATA\\[(.*)\\]\\]");
+        Pattern pat = Pattern.compile("height=\"(.*)\"");
         Matcher m = pat.matcher(exItem);
         if (m.find())
             System.out.print("Znaleziono tytuł: " +m.group(1));
