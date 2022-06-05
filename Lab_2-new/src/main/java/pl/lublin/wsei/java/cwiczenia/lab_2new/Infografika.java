@@ -50,8 +50,15 @@ public class Infografika {
         pat = Pattern.compile("height=\"(.*)\"");
         m = pat.matcher((text));
         if (m.find())
-            graphicWidth = m.group(1);
+            graphicHeight = m.group(1);
         else
-            graphicWidth = "";
+            graphicHeight = "";
+    }
+    public void print() {
+        System.out.println("Infografika: ");
+        System.out.println("Tytul: " + graphicTitle);
+        System.out.println("Adres strony: " + graphicWebsiteAddress);
+        System.out.println("Adres miniaturki: " + thumbnailAddress);
+        System.out.println("Rozmiary : " + graphicWidth + "x" + graphicHeight);
     }
 }

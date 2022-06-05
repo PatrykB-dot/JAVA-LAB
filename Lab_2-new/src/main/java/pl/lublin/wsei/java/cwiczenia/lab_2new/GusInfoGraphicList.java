@@ -20,7 +20,7 @@ public class GusInfoGraphicList {
             e.printStackTrace();
             contents = "";
         }
-        String[] items = contents.split("item");
+        String[] items = contents.split("<item>");
         for (int i = 1; i < items.length; i++) {
             infografiki.add(new Infografika(items[i]));
         }
